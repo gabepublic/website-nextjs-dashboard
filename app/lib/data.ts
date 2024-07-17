@@ -13,9 +13,8 @@ export async function fetchRevenue() {
   try {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
-
-    // console.log('Fetching revenue data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    console.log('Fetching revenue data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
@@ -141,6 +140,7 @@ export async function fetchInvoicesPages(query: string) {
 }
 
 export async function fetchInvoiceById(id: string) {
+  //throw new Error('Failed to find Invoice');
   try {
     const data = await sql<InvoiceForm>`
       SELECT
@@ -157,7 +157,9 @@ export async function fetchInvoiceById(id: string) {
       // Convert amount from cents to dollars
       amount: invoice.amount / 100,
     }));
-
+    console.log('data: inv_id= ' + id);
+    console.log('data: inv_status= ' + invoice[0].status);
+    console.log('data: inv_custid= ' + invoice[0].customer_id);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
@@ -176,6 +178,7 @@ export async function fetchCustomers() {
     `;
 
     const customers = data.rows;
+    console.log("cust_id: "+customers[0].id)
     return customers;
   } catch (err) {
     console.error('Database Error:', err);
