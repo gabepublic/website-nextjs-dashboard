@@ -145,3 +145,6 @@ dist
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# :Zone.Identifier
+*:Zone.Identifier
