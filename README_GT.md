@@ -96,6 +96,7 @@ pnpm dev
   - To use CSS module, for example, add `/app/ui/home.module.css`
 - CSS - Conditional style using `clsx`
 - ROUTE - nextjs use file-system routing where "folders" are used to create nexted routes; each folder represents a route segment that maps to a URL segement.
+- Parentheses in folder names are used to define "Group Routes." These are special types of routes that allow for organizing the project structure without affecting the URL structure. This can be particularly useful for organizing layouts, separating concerns, or grouping related components.
 
 ## The react fundamental
 - At a minimum react needs two modules: core, dom & babel; that can be 
